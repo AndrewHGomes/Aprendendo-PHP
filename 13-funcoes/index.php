@@ -192,7 +192,12 @@
 
       <h2>Retornando valores</h2>
 
-      <p>Para permitir que funções retornem valores, utilizamos a instrução return:</p>
+      <ul>
+        <li>Para permitir que uma função nos devolva um valor, usamos a instrução return;</li>
+        <li>Uma função sem return devolve um valor null;</li>
+        <li>Ao chegar no return, a função para de executar, nada mais é lido abaixo do return;</li>
+        <li>Tudo o que a função precisa executar deve estar acima do return;</li>
+      </ul>
 
       <?php
 
@@ -204,18 +209,40 @@
 
       echo somaDoisValores(40, 35);
 
-      echo somaDoisValores(15, 5);
+      echo somaDoisValores(60, 17);
 
       echo somaDoisValores(101, 22);
 
+      $meuNome = "Andrew";
+
+      if (avaliarNome($meuNome)) {
+        echo "<p>Eu me chamo $meuNome</p>";
+      } else {
+        echo "<p>Nome está incorreto!</p>";
+      }
+
+      function avaliarNome($nome)
+      {
+        if ($nome === "Andrew") {
+          return true;
+        } else {
+          return false;
+        }
+      }
+
+      function teste()
+      {
+        //
+      }
+
+      if (teste() === null) {
+        echo "<p>Esta função não tem return, logo retorna Null</p>";
+      }
 
       ?>
 
     </section>
     <section>
-
-      <h2>Variadic Parameters</h2>
-
 
     </section>
 
