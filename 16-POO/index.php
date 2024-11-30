@@ -1,3 +1,45 @@
+<?php
+
+class Caneta
+{
+  public $modelo;
+  public $cor;
+  public $ponta;
+  public $carga;
+  public $tampada;
+
+  public function rabiscar()
+  {
+    if ($this->tampada === true) {
+      echo "<p>Não posso rabiscar. Caneta tampada</p>";
+    } else {
+      echo "<p>Estou rabiscando...</p>";
+    }
+  }
+
+  public function tampar()
+  {
+    $this->tampada = true;
+  }
+
+  public function destampar()
+  {
+    $this->tampada = false;
+  }
+}
+
+$caneta1 = new Caneta();
+$caneta1->modelo = 'Esferográfica';
+$caneta1->cor = 'Azul';
+$caneta1->ponta = 0.5;
+$caneta1->carga = 90;
+
+$caneta1->tampar();
+
+$caneta1->rabiscar();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -37,9 +79,7 @@
         enquanto a programação orientada a objetos consiste em criar objetos que contêm dados e funções.
       </p>
 
-      <p>
-        A programação orientada a objetos tem várias vantagens sobre a programação procedural:
-      </p>
+      <p>A programação orientada a objetos tem várias vantagens sobre a programação procedural:</p>
 
       <ul>
         <li>Mais rápida e fácil de executar;</li>
@@ -49,17 +89,13 @@
       </ul>
 
       <p>
-        <strong>
-          D.R.Y: Don't Repeat Yourself é sobre reduzir a repetição de código. <br>
-          Devemos extrair códigos comuns para a aplicação, colocá-los em um único lugar <br>
-          e reutilizá-los em vez de repeti-los.
-        </strong>
+        D.R.Y: Don't Repeat Yourself é sobre reduzir a repetição de código. <br>
+        Devemos extrair códigos comuns para a aplicação, colocá-los em um único lugar <br>
+        e reutilizá-los em vez de repeti-los.
       </p>
 
       <p>
-        <strong>
-          <ins>IMPORTANTE:</ins> Os nomes das classes são <em>case insensitive</em>, ou seja, maiúsculas ou minúsculas não importam, o sistema as reconhece de qualquer maneira.
-        </strong>
+        <ins>IMPORTANTE:</ins> Os nomes das classes são <em>case insensitive</em>, ou seja, maiúsculas ou minúsculas não importam, o sistema as reconhece de qualquer maneira.
       </p>
 
     </section>
@@ -67,15 +103,12 @@
 
       <h2>O que é um objeto?</h2>
 
-      <p>Coisa material ou abstrata que pode ser percebida pelos sentidos e descrita por meio das suas características, <br>
+      <p>
+        Coisa material ou abstrata que pode ser percebida pelos sentidos e descrita por meio das suas características, <br>
         comportamentos e estado atual
       </p>
 
-      <p>
-        <em>
-          Uma instância de uma classe.
-        </em>
-      </p>
+      <p>Na programação, um objeto é uma instância de uma classe.</p>
 
       <p>Faça 3 preguntas para lembrar o que é um objeto:</p>
 
@@ -90,55 +123,7 @@
 
       <h2>Classes</h2>
 
-      <p>
-        <em>
-          Define os atributos e métodos comuns que serão compartilhados pelos objetos.
-        </em>
-      </p>
-
-      <?php
-
-      class Caneta
-      {
-        public $modelo;
-        public $cor;
-        public $ponta;
-        public $carga;
-        public $tampada;
-
-        function rabiscar()
-        {
-          if ($this->tampada === true) {
-            echo "<p>Não posso rabiscar. Caneta tampada</p>";
-          } else {
-            echo "<p>Estou rabiscando...</p>";
-          }
-        }
-
-        function tampar()
-        {
-          $this->tampada = true;
-        }
-
-        function destampar()
-        {
-          $this->tampada = false;
-        }
-      }
-
-      $caneta1 = new Caneta();
-      $caneta1->modelo = 'Esferográfica';
-      $caneta1->cor = 'Azul';
-      $caneta1->ponta = 0.5;
-      $caneta1->carga = 90;
-
-      print_r($caneta1);
-
-      $caneta1->destampar();
-
-      $caneta1->rabiscar();
-
-      ?>
+      <p>Define os atributos e métodos comuns que serão compartilhados pelos objetos.</p>
 
       <ul>
         <li>Classes e objetos são os 2 pricipais aspectos da POO;</li>
@@ -147,10 +132,8 @@
       </ul>
 
       <p>
-        <ins>
-          Quando os objetos individuais são criados, eles herdam todas as propriedades e comportamentos da classe, <br>
-          mas cada objeto terá valores diferentes para as propriedades.
-        </ins>
+        Quando os objetos individuais são criados, eles herdam todas as propriedades e comportamentos da classe, <br>
+        mas cada objeto terá valores diferentes para as propriedades.
       </p>
 
       <ul>
@@ -169,11 +152,7 @@
         </ul>
       </ul>
 
-      <p>
-        <ins>
-          A palavra-chave this se refere ao objeto atual e só está disponível dentro de métodos.
-        </ins>
-      </p>
+      <p>A palavra-chave this se refere ao objeto atual e só está disponível dentro de métodos.</p>
 
       <ul>
         <li>Ainda temos o construct(método especial);</li>
@@ -181,11 +160,71 @@
         <li>Este método é escrito com dois undercores(__construct())</li>
       </ul>
 
+      <p>
+        <strong>
+          <em>
+            <?= $caneta1->modelo ?> | <?= $caneta1->cor ?> | <?= $caneta1->ponta ?> | <?= $caneta1->carga ?> | <?= $caneta1->tampada ?>
+          </em>
+        </strong>
+      </p>
+
+      <p>
+        <strong>
+          <em>
+            <?= $caneta1->rabiscar() ?>
+          </em>
+        </strong>
+      </p>
+
     </section>
     <section>
 
-      <h2>Visibilidade</h2>
+      <h2>Modificadores de Visibilidade</h2>
 
+      <p>Indicam o nível de acesso aos componentes internos de uma classe. <br>
+        Existem 3 símbolos que representam a visibilidade:
+      </p>
+
+      <ol>
+        <li>(+) público - public;</li>
+        <ul>
+          <li>a classe atual e todas as outras classes podem ter acesso;</li>
+        </ul>
+        <li>(-) privado - private;</li>
+        <ul>
+          <li>somente a classe atual terá acesso;</li>
+        </ul>
+        <li>(#) protegido - protected</li>
+        <ul>
+          <li>Acesso somente a classe atual e suas subclasses.</li>
+        </ul>
+      </ol>
+
+      <h3>Alguns conceitos de UML</h3>
+
+      <p>
+        <ins>
+          Linguagem de Modelagem Unificada | Diagrama de Classes
+        </ins>
+      </p>
+
+      <ul>
+        <li>Toda classe é um retângulo dividido em 3 partes;</li>
+        <li>O cabeçalho do retângulo recebe o nome da classe;</li>
+        <li>A parte central recebe os atributos, as características da classe;</li>
+        <li>A última parte recebe os métodos, as funções da classe.</li>
+      </ul>
+
+      <?php
+
+
+
+      ?>
+
+    </section>
+    <section>
+
+      <h2></h2>
     </section>
     <section>
 
