@@ -16,6 +16,17 @@
 
       <h2>Introdução</h2>
 
+      <h3>C.O.M.E.R.N. - Conceito Base</h3>
+
+      <ol>
+        <li>Confiável - o isolamento entre partes gera software seguro. Ao alterar uma parte, nenhuma outra é afetada;</li>
+        <li>Oportuno - ao dividir tudo em partes, várias delas podem ser desenvolvidas em paralelo;</li>
+        <li>Manutenível - atualizar um software é mais fácil, uma pequena modificação vai beneficiar todas as partes que usarem o objeto;</li>
+        <li>Extensível - o software não é estático, ele deve crescer para permanecer útil;</li>
+        <li>Reutilizável - podemos usar objetos de um sistema que criamos em outro sistema futuro;</li>
+        <li>Natural - mais fácil de entender, foco maior na funcionalidade do que nos detalhes de implementação.</li>
+      </ol>
+
       <ul>
         <li>A partir da versão 5, a Programação Orientada a Objetos foi introduzida no PHP;</li>
         <li>A POO é mais rápida e fácil de executar;</li>
@@ -54,39 +65,78 @@
     </section>
     <section>
 
+      <h2>O que é um objeto?</h2>
+
+      <p>Coisa material ou abstrata que pode ser percebida pelos sentidos e descrita por meio das suas características, <br>
+        comportamentos e estado atual
+      </p>
+
+      <p>
+        <em>
+          Uma instância de uma classe.
+        </em>
+      </p>
+
+      <p>Faça 3 preguntas para lembrar o que é um objeto:</p>
+
+      <ul>
+        <li>Que coisas tem? Atributo</li>
+        <li>Que coisas faz? Método</li>
+        <li>Como está agora? Estado</li>
+      </ul>
+
+    </section>
+    <section>
+
       <h2>Classes</h2>
+
+      <p>
+        <em>
+          Define os atributos e métodos comuns que serão compartilhados pelos objetos.
+        </em>
+      </p>
 
       <?php
 
-      class Humano
+      class Caneta
       {
-        public $nome, $sobrenome;
-        public $idade;
+        public $modelo;
+        public $cor;
+        public $ponta;
+        public $carga;
+        public $tampada;
 
-        function __construct($nome, $sobrenome, $idade)
+        function rabiscar()
         {
-          $this->nome = $nome;
-          $this->sobrenome = $sobrenome;
-          $this->idade = $idade;
+          if ($this->tampada === true) {
+            echo "<p>Não posso rabiscar. Caneta tampada</p>";
+          } else {
+            echo "<p>Estou rabiscando...</p>";
+          }
         }
 
-        public function nomeCompleto()
+        function tampar()
         {
-          return $this->nome . ' ' . $this->sobrenome;
+          $this->tampada = true;
+        }
+
+        function destampar()
+        {
+          $this->tampada = false;
         }
       }
 
-      $andrew = new Humano('Andrew', 'Gomes', 36);
+      $caneta1 = new Caneta();
+      $caneta1->modelo = 'Esferográfica';
+      $caneta1->cor = 'Azul';
+      $caneta1->ponta = 0.5;
+      $caneta1->carga = 90;
 
-      $viviane = new Humano('Viviane', 'Rodrigues', 39);
+      print_r($caneta1);
 
-      echo '<p>1º objeto criado à partir da classe Humano:</p>';
+      $caneta1->destampar();
 
-      echo '<span>' . $andrew->nomeCompleto() . ', ' . $andrew->idade . ' anos.</span>';
-
-      echo '<p>2º objeto criado à partir da classe Humano:</p>';
-
-      echo '<span>' . $viviane->nomeCompleto() . ', ' . $viviane->idade . ' anos.</span>';
+      $caneta1->rabiscar();
 
       ?>
 
@@ -134,7 +184,65 @@
     </section>
     <section>
 
+      <h2>Visibilidade</h2>
+
+    </section>
+    <section>
+
       <h2>Herança</h2>
+
+      <?php
+
+      class Animal
+      {
+        public $especie;
+
+        function __construct($especie)
+        {
+          $this->especie = $especie;
+        }
+
+        public function tipoEspecie()
+        {
+          return "Este animal é um {$this->especie}";
+        }
+      }
+
+      $cachorro = new Animal('mamífero');
+
+      echo "<p>{$cachorro->tipoEspecie()}</p>";
+
+      ?>
+
+      <ul>
+        <li>Mecanismo que permite criar classes que herdam propriedades e métodos de outras classes;</li>
+        <li>A classe inicial é designada por classe base, classe mãe ou superclass;</li>
+        <li>A classe que herda propriedades e métodos da classe mãe é chamada de classe filha ou classe derivada;</li>
+        <li>Para uma classe herdar de outra, usamos o palavra-chave extends.</li>
+      </ul>
+
+      <?php
+
+      class Mamifero extends Animal
+      {
+        public $patas;
+
+        function __construct($patas)
+        {
+          $this->patas = $patas;
+        }
+
+        function quantidadePatas()
+        {
+          return "Este animal é um {$this->especie} e tem {$this->patas}.";
+        }
+      }
+
+      $gato = new Mamifero('gato', 4);
+
+      echo "<p>{$gato->quantidadePatas()}</p>";
+
+      ?>
 
     </section>
 
