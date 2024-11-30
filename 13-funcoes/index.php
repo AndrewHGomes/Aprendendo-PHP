@@ -244,6 +244,100 @@
     </section>
     <section>
 
+      <h2>Funções Anônimas</h2>
+
+      <ul>
+        <li>São funções que não recebem um nome identificador;</li>
+        <li>São muito usadas como parâmetros <ins>callable</ins>;</li>
+        <li>Podem ser atribuídas a variáveis;</li>
+        <li>Podem ter vários outros casos de uso.</li>
+      </ul>
+
+      <?php
+
+      $anonimaSimples = function () {
+        echo "<p>Olá, mundo!</p>";
+      };
+
+      $anonimaSimples();
+
+      $anonimaParametro = function ($tech) {
+        echo "<p>Estou estudando $tech</p>";
+      };
+
+      $anonimaParametro('PHP');
+
+      $anonimaParametro('MySQL');
+
+      $anonimaCallable = function () {
+        return "<p>Tô aqui!!!</p>";
+      };
+
+      function falar($arg)
+      {
+        echo $arg;
+      }
+
+      falar($anonimaCallable());
+
+      ?>
+
+    </section>
+    <section>
+
+      <h2>Closures</h2>
+
+      <ul>
+        <li>São funções anônimas que podem usar variáveis do escopo Globa;</li>
+        <li>Porém, as variáveis Globais usadas dentro da closure não sofrem alterações;</li>
+      </ul>
+
+      <?php
+
+      $x = 20;
+
+      $y = 30;
+
+      $minhaClosure = function ($z) use ($x, $y) {
+        echo "<p>$z | $x | $y</p>";
+
+        $y = 'Teste';
+      };
+
+      $minhaClosure(10);
+
+      echo "<p>$y</p>";
+
+      ?>
+
+    </section>
+    <section>
+
+      <h2>Arrow Function</h2>
+
+      <ul>
+        <li>Funções anônimas escritas de forma mais suscinta;</li>
+        <li>Suportam as mesmas características de uma closure;</li>
+        <li>Porém, capturam automaticamente as variáveis Globais.</li>
+      </ul>
+
+      <?php
+
+      $a = 50;
+
+      $b = 60;
+
+      $myArrow = fn($c) => "<p>$a | $b | $c</p>";
+
+      echo $myArrow(70);
+
+      ?>
+
+      <ul>
+        <li>Usamos a instrução fn antes dos parênteses em sua declaração;</li>
+        <li>Recebe uma seta(=>) ao invés do return.</li>
+      </ul>
+
     </section>
 
   </main>
