@@ -2,11 +2,46 @@
 
 class Caneta
 {
-  public $modelo;
   public $cor;
-  public $ponta;
-  public $carga;
-  public $tampada;
+  private $carga;
+  protected $tampada;
+
+  public function __construct($cor, $carga, $tampada)
+  {
+    $this->cor = $cor;
+    $this->carga = $carga;
+    $this->tampada = $tampada;
+  }
+
+  public function getCor()
+  {
+    return $this->cor;
+  }
+
+  public function setCor($cor)
+  {
+    $this->cor = $cor;
+  }
+
+  public function getCarga()
+  {
+    return $this->carga;
+  }
+
+  public function setCarga($carga)
+  {
+    $this->carga = $carga;
+  }
+
+  public function getTampada()
+  {
+    return $this->tampada;
+  }
+
+  public function setTampada($tampada)
+  {
+    $this->tampada = $tampada;
+  }
 
   public function rabiscar()
   {
@@ -28,15 +63,9 @@ class Caneta
   }
 }
 
-$caneta1 = new Caneta();
-$caneta1->modelo = 'Esferográfica';
-$caneta1->cor = 'Azul';
-$caneta1->ponta = 0.5;
-$caneta1->carga = 90;
+$caneta1 = new Caneta('Azul', 85, false);
 
-$caneta1->tampar();
-
-$caneta1->rabiscar();
+$caneta1->tampar()
 
 ?>
 
@@ -152,18 +181,15 @@ $caneta1->rabiscar();
         </ul>
       </ul>
 
-      <p>A palavra-chave this se refere ao objeto atual e só está disponível dentro de métodos.</p>
-
-      <ul>
-        <li>Ainda temos o construct(método especial);</li>
-        <li>Ele é executado automaticamente quando é instanciado um objeto à partir de uma classe;</li>
-        <li>Este método é escrito com dois undercores(__construct())</li>
-      </ul>
+      <p>
+        A palavra-chave this se refere ao objeto atual e só está disponível dentro de métodos. <br>
+        Se refere ao próprio objeto, é usado como uma pseudo variável.
+      </p>
 
       <p>
         <strong>
           <em>
-            <?= $caneta1->modelo ?> | <?= $caneta1->cor ?> | <?= $caneta1->ponta ?> | <?= $caneta1->carga ?> | <?= $caneta1->tampada ?>
+            Meu objeto caneta: Cor: <?= $caneta1->cor ?> | Carga: <?= $caneta1->getCarga() ?>% | Tampada: <?= $caneta1->getTampada() ?>
           </em>
         </strong>
       </p>
@@ -215,16 +241,38 @@ $caneta1->rabiscar();
         <li>A última parte recebe os métodos, as funções da classe.</li>
       </ul>
 
-      <?php
-
-
-
-      ?>
-
     </section>
     <section>
 
-      <h2></h2>
+      <h2>Métodos Especiais</h2>
+
+      <h3>Getter</h3>
+
+      <ul>
+        <li>É um método especial acessor;</li>
+        <li>Serve para obter valores de atributos de uma classe;</li>
+        <li>Por convesão, usamos a palavra get no início do nome(getValorX());</li>
+        <li>Ele não altera o estado do objeto, simplesmente pega o valor do atributo.</li>
+      </ul>
+
+      <h3>Setter</h3>
+
+      <ul>
+        <li>É um método modificador;</li>
+        <li>Serve para modificar valores de atributos de uma classe;</li>
+        <li>Se necessário, esse método deve aplicar uma lógica ou validação para modificar;</li>
+        <li>Por convesão, usamos a palavra set no início do nome(setValorX());</li>
+      </ul>
+
+      <h3>Construct</h3>
+
+      <ul>
+        <li>Serve para inicializar os atributos de um objeto;</li>
+        <li>Geralmente recebe os parâmetros da classe para construir o objeto;</li>
+        <li>Ele é executado automaticamente quando é instanciado um objeto à partir de uma classe;</li>
+        <li>Este método é escrito com dois undercores(__construct())</li>
+      </ul>
+
     </section>
     <section>
 
