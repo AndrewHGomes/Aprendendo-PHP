@@ -276,6 +276,11 @@ $caneta1->tampar()
     </section>
     <section>
 
+      <h2>Encapsulamento</h2>
+
+    </section>
+    <section>
+
       <h2>Herança</h2>
 
       <?php
