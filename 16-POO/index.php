@@ -1,71 +1,6 @@
 <?php
 
-class Caneta
-{
-  public $cor;
-  private $carga;
-  protected $tampada;
-
-  public function __construct($cor, $carga, $tampada)
-  {
-    $this->cor = $cor;
-    $this->carga = $carga;
-    $this->tampada = $tampada;
-  }
-
-  public function getCor()
-  {
-    return $this->cor;
-  }
-
-  public function setCor($cor)
-  {
-    $this->cor = $cor;
-  }
-
-  public function getCarga()
-  {
-    return $this->carga;
-  }
-
-  public function setCarga($carga)
-  {
-    $this->carga = $carga;
-  }
-
-  public function getTampada()
-  {
-    return $this->tampada;
-  }
-
-  public function setTampada($tampada)
-  {
-    $this->tampada = $tampada;
-  }
-
-  public function rabiscar()
-  {
-    if ($this->tampada === true) {
-      echo "<p>Não posso rabiscar. Caneta tampada</p>";
-    } else {
-      echo "<p>Estou rabiscando...</p>";
-    }
-  }
-
-  public function tampar()
-  {
-    $this->tampada = true;
-  }
-
-  public function destampar()
-  {
-    $this->tampada = false;
-  }
-}
-
-$caneta1 = new Caneta('Azul', 85, false);
-
-$caneta1->tampar()
+require 'Caneta.php';
 
 ?>
 
@@ -86,6 +21,14 @@ $caneta1->tampar()
     <section>
 
       <h2>Introdução</h2>
+
+      <h3>Lembrete: os 3 pilares da POO</h3>
+
+      <ul>
+        <li>Encapsulamento;</li>
+        <li>Herança;</li>
+        <li>Polimorfismo;</li>
+      </ul>
 
       <h3>C.O.M.E.R.N. - Conceito Base</h3>
 
@@ -186,6 +129,12 @@ $caneta1->tampar()
         Se refere ao próprio objeto, é usado como uma pseudo variável.
       </p>
 
+      <?php
+
+      $caneta1 = new Caneta('Azul', 75, false);
+
+      ?>
+
       <p>
         <strong>
           <em>
@@ -277,6 +226,47 @@ $caneta1->tampar()
     <section>
 
       <h2>Encapsulamento</h2>
+
+      <h3>Dicas para lembrar o conceito:</h3>
+
+      <ul>
+        <li>Serve para protejer o que está interno do que está externo;</li>
+        <li>Serve para protejer o que está externo do que está interno;</li>
+        <li>Serve para padronizar onde e quando será utilizado;</li>
+      </ul>
+
+      <h3>Para a POO, encapsular é:</h3>
+
+      <ul>
+        <li>Ocultar partes independentes da implementação;</li>
+        <li>Permitir construir partes invisíveis ao mundo exterior;</li>
+        <li>As partes podem se conversar, sem saber como funcionam;</li>
+        <li>As trocas de mensagens acontecem por meio de uma interface;</li>
+        <li>Um bom objeto bem encapsulado possui uma interface bem definida;</li>
+        <li>Encapsular NÃO É OBRIGATÓRIO, mas é uma BOA PRÁTICA para produzir classes mais eficientes.</li>
+      </ul>
+
+      <p>
+        Obs: Interface é uma lista de serviços oferecidos por um componente. <br>
+        É o contato com o mundo exterior, que define o que pode ser feito com um objeto de uma classe.
+      </p>
+
+      <h3>Vantagens de encapsular</h3>
+
+      <ol>
+        <li>Tornar mudanças invisíveis:</li>
+        <ul>
+          <li>Mudar um software bem encapulado, mantendo a interface, podemos mudar a 'cápsula'.</li>
+        </ul>
+        <li>Facilitar a reutilização de código:</li>
+        <ul>
+          <li>Uma classe bem encapsulada pode ser reutilizada em outros projetos.</li>
+        </ul>
+        <li>Reduzir efeitos colaterais:</li>
+        <ul>
+          <li>Uma classe mal encapsulada pode afetar o programa e outros programas.</li>
+        </ul>
+      </ol>
 
     </section>
     <section>
