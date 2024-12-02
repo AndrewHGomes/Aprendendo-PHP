@@ -41,14 +41,10 @@ require 'ContaBancaria.php';
       $andrew = new ContaBancaria(1111, 'CP', 'Andrew Gomes');
 
       $andrew->abrirConta('CP');
-
       $andrew->depositar(300);
-
       $andrew->pagarMensalidade();
-
-      $andrew->sacar(70);
-
-      $andrew->depositar(1000);
+      $andrew->sacar(430);
+      $andrew->fecharConta();
 
       ?>
 
@@ -71,14 +67,11 @@ require 'ContaBancaria.php';
       $viviane = new ContaBancaria(2222, 'CC', 'Viviane Rodrigues');
 
       $viviane->abrirConta('CC');
-
       $viviane->depositar(500);
-
       $viviane->sacar(100);
-
       $viviane->pagarMensalidade();
-
-      $viviane->depositar(1500);
+      $viviane->sacar(438);
+      $viviane->fecharConta();
 
       ?>
 

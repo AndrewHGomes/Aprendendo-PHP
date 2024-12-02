@@ -94,6 +94,7 @@ class ContaBancaria
       echo "<p>Você tem um débito de R$ {$this->getSaldoConta()},00. Pague para encerrar a conta.</p>";
     } else {
       $this->setStatusConta(false);
+      echo "<p>Conta encerrada com sucesso!";
     }
   }
 
