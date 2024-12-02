@@ -26,8 +26,20 @@ require 'Caneta.php';
 
       <ul>
         <li>Encapsulamento;</li>
+        <ul>
+          <li>Proteger o acesso aos membros internos de um objeto;</li>
+          <li>Acessar os atributos de uma classe através de métodos da própria classe.</li>
+        </ul>
         <li>Herança;</li>
+        <ul>
+          <li>Uma classe estender seus atributos e métodos para subclasses;</li>
+          <li>A classe que estende é a 'mãe', as subclasses são 'filhas'.</li>
+        </ul>
         <li>Polimorfismo;</li>
+        <ul>
+          <li>Remete a muitas formas;</li>
+          <li>Permite que classes 'filhas' possam ter métodos iguais e com os mesmos parâmetros da classe 'mãe' mas com comportamentos diferentes.</li>
+        </ul>
       </ul>
 
       <h3>C.O.M.E.R.N. - Conceito Base</h3>
@@ -82,7 +94,7 @@ require 'Caneta.php';
 
       <p>Na programação, um objeto é uma instância de uma classe.</p>
 
-      <p>Faça 3 preguntas para lembrar o que é um objeto:</p>
+      <h3>Faça 3 preguntas para lembrar o que é um objeto:</h3>
 
       <ul>
         <li>Que coisas tem? Atributo</li>
@@ -273,29 +285,6 @@ require 'Caneta.php';
 
       <h2>Herança</h2>
 
-      <?php
-
-      class Animal
-      {
-        public $especie;
-
-        function __construct($especie)
-        {
-          $this->especie = $especie;
-        }
-
-        public function tipoEspecie()
-        {
-          return "Este animal é um {$this->especie}";
-        }
-      }
-
-      $cachorro = new Animal('mamífero');
-
-      echo "<p>{$cachorro->tipoEspecie()}</p>";
-
-      ?>
-
       <ul>
         <li>Mecanismo que permite criar classes que herdam propriedades e métodos de outras classes;</li>
         <li>A classe inicial é designada por classe base, classe mãe ou superclass;</li>
@@ -303,31 +292,7 @@ require 'Caneta.php';
         <li>Para uma classe herdar de outra, usamos o palavra-chave extends.</li>
       </ul>
 
-      <?php
-
-      class Mamifero extends Animal
-      {
-        public $patas;
-
-        function __construct($patas)
-        {
-          $this->patas = $patas;
-        }
-
-        function quantidadePatas()
-        {
-          return "Este animal é um {$this->especie} e tem {$this->patas}.";
-        }
-      }
-
-      $gato = new Mamifero('gato', 4);
-
-      echo "<p>{$gato->quantidadePatas()}</p>";
-
-      ?>
-
     </section>
-
 
   </main>
 </body>
